@@ -1,2 +1,2 @@
 # plugin-dns
-The login sheel for Oppos.
+The login shell for Oppos.
