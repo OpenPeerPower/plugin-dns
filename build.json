@@ -1,0 +1,16 @@
+{
+    "image": "openpeerpower/{arch}-oppio-dns",
+    "build_from": {
+        "aarch64": "openpeerpower/aarch64-base:3.13",
+        "armhf": "openpeerpower/armhf-base:3.13",
+        "armv7": "openpeerpower/armv7-base:3.13",
+        "amd64": "openpeerpower/amd64-base:3.13",
+        "i386": "openpeerpower/i386-base:3.13"
+    },
+    "labels": {
+        "io.opp.type": "dns"
+    },
+    "args": {
+        "COREDNS_VERSION": "1.8.1"
+    }
+}

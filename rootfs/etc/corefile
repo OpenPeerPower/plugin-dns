@@ -1,0 +1,31 @@
+# This is a fallback config and got overwritten by /usr/share/corefile.tempio
+
+.:53 {
+    log
+    errors
+    loop
+    hosts /config/hosts {
+        fallthrough
+    }
+    template ANY AAAA local.opp.io oppio {
+        rcode NOERROR
+    }
+    mdns
+    forward . dns://172.0.0.11:53 dns://127.0.0.1:5553 {
+        except local.opp.io
+        policy sequential
+        health_check 5s
+    }
+    cache 10
+}
+
+.:5553 {
+    log
+    errors
+    forward . tls://1.1.1.1 tls://1.0.0.1 {
+        tls_servername cloudflare-dns.com
+        except local.opp.io
+        health_check 10s
+    }
+    cache 30
+}
